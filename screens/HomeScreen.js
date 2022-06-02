@@ -5,6 +5,7 @@ import Footer from '../component/Footer';
 class HomeScreen extends Component {
 
   constructor(){
+    
     super();
     this.state = {
       totalCount:0,

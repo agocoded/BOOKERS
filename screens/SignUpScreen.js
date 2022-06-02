@@ -1,20 +1,13 @@
 
-import React, { Component } from 'react';
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View,} from 'react-native';
 
-class SignUpScreen extends Component {
-  render() {
+const SignUpScreen = () => {
     return (
-
-        <View style={{ flex:1 , alignItems:'center', justifyContent:'center'}}>
+        <View style={{ flex:1 , alignItems:'center', justifyContent:'center', backgroundColor:'red'}}>
             <Text> Sign Up Screen</Text>
         </View>
     );
   }
-}
-
-
-
 
 export default SignUpScreen;
 
