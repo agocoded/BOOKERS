@@ -1,6 +1,5 @@
 import React from 'react';
-import SignUpScreen from './screens/SignUpScreen';
-import Welcome from './screens/HomeScreen'
+import Welcome from './screens/Welcome'
 
 
 const App = () => {
