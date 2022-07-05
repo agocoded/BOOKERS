@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, SafeAreaView, TouchableOpacity, TextInput, FlatList } from 'react-native';
+import { Text, View, StyleSheet, 
+  SafeAreaView, Platform, 
+   TouchableOpacity, TextInput, FlatList, 
+  StatusBar, } from 'react-native';
 import Footer from '../component/Footer';
+
+import { Ionicons } from '@expo/vector-icons';
+import { auth } from '../config/firebase';
 
 class HomeScreen extends Component {
 
@@ -61,6 +67,17 @@ class HomeScreen extends Component {
   };
 
 
+  logOut = () => {
+    auth.signOut()
+    .catch((error) =>{
+      alert('Unable to Signout')
+    })
+    .then(() => {
+      this.props.navigation.replace('Login')
+    })
+  }
+
+
   rendItem = (item, index) => (
 
     <View style={{ height:50, width:'100%', flexDirection:'row', marginTop:1}}>
@@ -85,10 +102,14 @@ class HomeScreen extends Component {
   render() {
     return (
 
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,  }}>
 
-        <View  style={{ height:70, backgroundColor: 'powderblue', alignItems: 'center', justifyContent:'center'}} >
-          <Text style={{fontSize:30}}> My Book Lab</Text>
+        <View  style={{ height:70, backgroundColor: 'powderblue', flexDirection:'row', justifyContent:'space-around', alignItems:'center'}} >
+          <Text style={{fontSize:30,}}> My Book Lab</Text>
+
+          <TouchableOpacity onPress={this.logOut}>
+            <Ionicons name="ios-log-out-outline" size={30} color="black" />
+          </TouchableOpacity>
         </View>
         
         <View style={{ flex: 1,}}>
