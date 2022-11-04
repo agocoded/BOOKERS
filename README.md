@@ -1,2 +1,2 @@
 # BOOKERS
-An app that functions to manage the state of book read online
+A React Native app that manages the state of book read using FIREBASE
